@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block subscription %}
+<style>
+    .subscriptions {
+        height: 1500px;
+        width: 100%;
+        background-color: white;
+    }
+
+    .subscriptions h1 {
+        text-align: center;
+        font-size: 3rem;
+        color: rgb(0, 0, 0);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 700;
+        margin-top: 2%;
+    }
+
+    .subscriptions hr {
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .first1 h1 {
+        margin-top: 1%;
+        text-align: center;
+        color: black;
+        font-size: 1.8rem;
+        font-weight: 600;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .first2 {
+        margin-top: 2%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .f1 {
+        margin-right: 2%;
+    }
+
+    .f1 img {
+        width: 70%;
+        margin-left: 16%;
+    }
+
+    .f1 h1 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .f1 p {
+        text-align: center;
+    }
+
+    .subscribe {
+        margin-top: 0.5%;
+        height: 40px;
+        width: 100%;
+        border-radius: 20px;
+        background-color: #dddcdc;
+    }
+
+    #name {
+        color: #1aa2d8;
+    }
+
+    #lastline {
+        margin-top: 2%;
+    }
+
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        /* Add a smooth transition effect */
+    }
+
+    button.clicked {
+        background-color: rgb(226, 176, 69);
+        /* Change to your desired color */
+    }
+</style>
+<div class="subscriptions">
+    .
+    <h1>Your Subcription suggestions</h1>
+    <hr>
+    <div class="first1">
+        <h1 id="name">Programming and Technology Channels </h1>
+        <div class="first2">
+            <div class="f1">
+                <img src="{% static 'channel/g1.png' %}" alt="">
+                <h1>Codewithharry</h1>
+                <p>807K subscribers</p>
+                <button class="subscribe" id="colorButton">subscribe</button>
+            </div>
+        </div>
+
+    </div>
+    <hr id="lastline">
+
+</div>
+{% endblock subscription %}

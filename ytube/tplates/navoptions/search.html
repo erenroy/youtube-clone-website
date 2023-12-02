@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block subscription %}
+<style>
+    #trend{
+        text-align: center;
+        color: white;
+        font-size: 2rem;
+        margin-top: 5%;
+    }
+    #nf{
+        margin-left: 150%;
+    }
+    #noresult{
+        color: white;
+    }
+
+
+    
+@media (max-width: 1100px){
+    #nf{
+        margin-left: 50%;
+    }
+}
+@media (max-width: 650px){
+    #nf {
+    margin-left: 5%;
+}
+}
+@media (max-width: 450px){
+    #nf {
+    margin-left: 0%;
+}
+}
+</style>
+<h1 id="trend">There Your go . Here are your top search results -- </h1>
+
+        <!-- videos container grid layout -->
+        <div class="videos-container" id="videos-container">
+            <!-- one video card -->
+            {% if results %}
+            {% for post in results %}
+            <div id="roundedbox" class="flex flex-col space-y-5 cursor-pointer">
+                <!-- thumbnail -->
+                <a href="{% url 'videopage' post.slug %}">
+                    <div class="relative h-52 sm:h-50 w-full">
+                    <img class="relative h-full w-full object-cover" src="{{post.channelimages.url}}" alt="">
+                    <span class="absolute right-1 bottom-1 p-0.5 px-1 rounded-sm bg-black text-white text-xs bg-opacity-70">38:38</span>
+                    </div>
+                </a>
+                <!-- video details -->
+                <div class="flex flex-col flex-auto space-y-1.5 mb-3">
+
+                <div class="flex items-center space-x-3">
+                    <!-- channel logo -->
+                    <img class="w-12 h-12 rounded-full object-cover cursor-pointer" src="{{post.smallimage.url}}" alt="">
+                    <div class="flex items-start">
+                    <a href="#" class="text-sm text-bold text-white pr-1">{{post.videotitle}}</a>
+                    <i class="material-icons text-white md-21 mx-50">more_vert</i>
+                    </div>
+                </div>
+
+                <!-- channel link and meta data -->
+                <div class="flex flex-col pl-1 sm:pl-0 ml-14">
+                    <a href="" class="text-gray-400 text-sm hover:text-white">Channel Name - {{post.channelname}}</a>
+                    <div class="flex space-x-1">
+                        <span class="text-sm text-gray-400">74K views</span>
+                        <span class="text-sm text-gray-400"></span>
+                        <span class="text-sm text-gray-400">1 month ago</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+
+
+            {% else %}
+               <div class="notfound">
+                <img id="nf" src="{% static 'try/nosearch.png' %}" alt="" class="img-fluid">
+                <h1 id="noresult">Search Result Not Found Please Try again ..................  Thank You 
+
+                </h1>
+                
+               </div>
+               
+            {% endif %}
+            
+            
+            
+        </div>
+        
+{% endblock subscription %}

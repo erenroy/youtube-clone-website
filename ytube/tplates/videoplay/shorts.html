@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block subscription %}
+<style>
+    .shorts{
+        margin: 0 auto;
+    }
+    #playvideonow{
+        margin-top: 12%;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .short2{
+        margin-top: 1%;
+        display: flex;
+    }
+    #channelid{
+        width: 14%;
+    }
+    .short2 h1{
+        color: white;
+        margin-top: 4.5%;
+        margin-left: 2%;
+    }
+    .short2 h2{
+        color: white;
+        margin-top: 4.5%;
+        margin-left: 8%;
+        font-size: 1rem;
+    }
+    .like {
+    height: 65px;
+    width: 225%;
+    background-color: rgb(255, 252, 80);
+    border-radius: 50px;
+    margin-left: 400%;
+}
+    .hate{
+        height: 65px;
+        width: 220%;
+        background-color: rgb(255, 80, 80);
+        border-radius: 50px;
+        margin-left: 500%;
+    }
+    #likesh2{
+        margin-top: 6.51%;
+        margin-left: 2%;
+    }
+    .short1{
+        width: 115%;
+    }
+
+    
+</style>
+            
+{% for post in data %}
+<div class="shorts">
+    <div class="short1">
+        <!-- <img id="short3" src="{% static 'try/1.png' %}" alt=""> -->
+        <video id="playvideonow" controls class="object-fit-contain" id="myVideo">
+            <source src="{{post.shortvideo.url}}" type="video/mp4">
+        </video>
+    </div>
+    <div class="short2">
+        
+        <img id="channelid" src="{% static 'channel/g1.png' %}" alt="">
+        <div class="details">
+
+            <h1>Codewithharrry</h1>
+            <h2>Likes: 20</h2>
+  
+        </div>
+        <h2 id="likesh2">_______</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            <button id="likebutton2" type="submit" name="like_button" class="like">Like</button>
+        </form>
+        <form action="">
+            <button class="hate">hate</button>
+        </form>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock subscription %}

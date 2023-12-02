@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block subscription %}
+<style>
+    .shorts{
+        margin: 0 auto;
+    }
+    #playvideonow{
+        margin-top: 12%;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .short1{
+        margin-top: 12%;
+    }
+    .short2{
+        margin-top: 1%;
+        display: flex;
+    }
+    #channelid{
+        width: 14%;
+    }
+    .short2 h1{
+        color: white;
+        margin-top: 7.5%;
+        margin-left: 2%;
+    }
+    .short2 h2{
+        color: white;
+        margin-top: 4.5%;
+        margin-left: 8%;
+        font-size: 1rem;
+    }
+    .like {
+    height: 65px;
+    width: 225%;
+    background-color: rgb(255, 252, 80);
+    border-radius: 50px;
+    margin-left: 400%;
+}
+    .hate{
+        height: 65px;
+        width: 220%;
+        background-color: rgb(255, 80, 80);
+        border-radius: 50px;
+        margin-left: 500%;
+    }
+    #likesh2{
+        margin-top: 6.51%;
+        margin-left: 2%;
+    }
+    .short1{
+        width: 115%;
+    }
+    #myimg{
+        width: 550px;
+        border-radius: 30px;
+    }
+    #title{
+        margin-left: -16%;
+    }
+    .details h1{
+        margin-top: 1.7%;
+        color: rgb(0, 204, 255);
+    }
+    .shorts{
+        margin-bottom: -2%;
+    }
+    
+</style>
+{% for post in data %}
+<div class="shorts">
+    <div class="short1">
+        <!-- <img id="short3" src="{% static 'try/1.png' %}" alt=""> -->
+        <img id="myimg" src="{{post.compost.url}}" alt="">
+    </div>
+    <div class="short2">
+        
+        <img id="channelid" src="{% static 'channel/g1.png' %}" alt="">
+        <div class="details">
+            .
+
+            <h1>{{post.comchannelname}}</h1>
+        </div>
+        <!-- <h1 id="title">{{post.comtitle}}.</h1> -->
+        
+    </div>
+</div>
+{% endfor %}
+
+{% endblock subscription %}
+

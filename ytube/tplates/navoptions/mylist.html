@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block subscription %}
+<style>
+/* Change to your desired color */
+    .mylist h1{
+        text-align: center;
+        font-size: 3rem;
+        color: rgb(137, 255, 255);
+        margin-top: 4%;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    #line{
+        margin-bottom: 2%;
+    }
+    .video{
+        display: flex;
+        margin-left: 5%;
+        margin-bottom: 1%;
+        
+    }
+    #vimg{
+        width: 23%;
+        margin-right: 2%;
+        border-radius: 25px;
+    }
+    .text h1{
+        text-align: center;
+        margin-top: 0%;
+        color: white;
+    }
+    .text p{
+        text-align: center;
+        margin-top: 0.54%;
+        color: white;
+        font-size: 1rem;
+    }
+    #watch{
+        background-color: rgb(6, 98, 218);
+        height: 50px;
+        width: 141%;
+        border-radius: 10px;
+        color: white;
+        margin-top: 12%;
+        margin-left: 34%;
+    }
+    .opt{
+        display: flex;
+        margin-left: 31%;
+    }
+    #watch2{
+        height: 50px;
+        width: 141%;
+        background-color: rgb(218, 6, 6);
+        border-radius: 10px;
+        color: white;
+        margin-top: 12%;
+        margin-left: 84%;
+    }
+</style>
+<div class="mylist">
+    <h1>Mylist of movies and Videos</h1>
+    <hr id="line">
+    {% for cart in carts %}
+    <div class="video">
+            <img id="vimg" src="{{cart.movie.channelimages.url}}" class="img-fluid" alt="">
+        <div class="text">
+            <h1>{{cart.movie.videotitle}}</h1>
+            <p>Loripit distinctiorovident,nere, harum, beatae provident officia dolores. Odit perferendis, error corrupti quo quasi culpa nemo suscipit neque? Beatae, ipsam! Placeat ea quae id aliquid dolor minus distinctio consequatur exercitationem nisi ducimus ad quidem, inventore officiis, autem neque animi. Labore eligendi, ab magnam nam molestiae optio illo impedit modi nemo quae laborum quo. Vel.</p>
+            <div class="opt">
+            <a href="{% url 'home' %}"><button id="watch">Watch now</button></a>
+            <a href="{% url 'remove_mylist' %}?post_id={{ cart.movie.id }}"><button id="watch2">Delete now</button></a>
+        </div>
+        </div>
+    </div>
+{% endfor %}
+    
+</div>
+{% endblock subscription %}

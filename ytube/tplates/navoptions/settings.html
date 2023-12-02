@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block subscription %}
+
+<style>
+    .settings{
+        display: flex;
+        margin: 0 auto;
+    }
+    #darks{
+        height: 70px;
+        width: 80%;
+        background-color: rgb(61, 58, 58);
+        font-size: 1.8rem;
+        color: white;
+        margin-top: 3%;
+    }
+    .set1{
+        margin-top: 10%;
+    }
+    .set2{
+        margin-top: 5%;
+    }
+    .btns{
+        margin-top: 19.4%;
+    }
+
+    body {
+            transition: background-color 0.5s;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Light Mode Styles */
+        body.light-mode {
+            background-color: #fff;
+            color: #333;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        /* Dark Mode Styles */
+
+        /* Light Mode Styles */
+        body.green-mode {
+            background-color: rgb(33, 223, 64);
+            color: #333;
+        }
+</style>
+
+<div class="settings">
+
+<div class="set1">
+    <img src="{% static 'settings/s2.png' %}" class="img-fluid" alt="">
+
+    <button onclick="toggleMode()" id="darks">Dark_Theme</button>
+    <button onclick="toggleMode()" id="darks">Light_Theme</button>
+    <button onclick="toggleModegreen()" id="darks">Green_Theme</button>
+
+</div>
+<div class="set2">
+
+    <img src="{% static 'settings/s1.png' %}" alt="">
+    <div class="btns">
+    <button id="darks">Sound_On</button>
+    <button id="darks">Sound_off</button>
+    <button id="darks">Default</button>
+</div>
+</div>
+    
+</div>
+<script>
+    function toggleMode() {
+        const body = document.body;
+
+        // Toggle dark mode class
+        body.classList.toggle('dark-mode');
+
+        // Toggle light mode class
+        body.classList.toggle('light-mode');
+    }
+
+    function toggleModegreen() {
+        const body = document.body;
+
+        // Toggle dark mode class
+        body.classList.toggle('dark-mode');
+
+        // Toggle light mode class
+        body.classList.toggle('green-mode');
+    }
+</script>
+{% endblock subscription %}
